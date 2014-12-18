@@ -7,8 +7,8 @@
 #FROM phusion/passenger-ruby19:<VERSION>
 #FROM phusion/passenger-ruby20:<VERSION>
 #FROM phusion/passenger-ruby21:<VERSION>
-FROM phusion/passenger-nodejs:0.9.14
-#FROM phusion/passenger-customizable:<VERSION>
+# FROM phusion/passenger-nodejs:<VERSION>
+FROM phusion/passenger-customizable:0.9.14
 
 # Set correct environment variables.
 ENV HOME /root
@@ -22,7 +22,7 @@ CMD ["/sbin/my_init"]
 # for features. Uncomment the features you want:
 #
 #   Build system and git.
-# RUN /build/utilities.sh
+RUN /build/utilities.sh
 #   Ruby support.
 #RUN /build/ruby1.9.sh
 #RUN /build/ruby2.0.sh
@@ -30,7 +30,12 @@ CMD ["/sbin/my_init"]
 #   Python support.
 #RUN /build/python.sh
 #   Node.js and Meteor support.
-# RUN /build/nodejs.sh
+RUN /build/nodejs.sh
+
+# Setup REDIS:
+RUN /build/redis.sh
+RUN rm -f /etc/service/redis/down
+
 
 
 # ...put your own build instructions here...
@@ -51,9 +56,6 @@ RUN cp Docker/nginx-bchat.conf /etc/nginx/sites-enabled/bchat.conf
 USER root
 RUN npm install -g googleapis@0.7.0 redis@0.10.1 request@2.34.0 socket.io@1.0.6
 
-# Setup REDIS:
-RUN /build/redis.sh
-RUN rm -f /etc/service/redis/down
 
 # Muh key:
 ADD id_rsa.pub /tmp/id_rsa.pub
