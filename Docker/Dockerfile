@@ -42,6 +42,7 @@ RUN git clone https://1c8ed18a15cebbf96e47e059d98fdbfe336b0fb9@github.com/kappal
 
 # Setup nginx:
 USER root
+WORKDIR /home/app/bChat
 RUN rm -f /etc/service/nginx/down
 RUN rm /etc/nginx/sites-enabled/default
 RUN cp Docker/nginx-bchat.conf /etc/nginx/sites-enabled/bchat.conf
