@@ -58,8 +58,8 @@ RUN npm install -g googleapis@0.7.0 redis@0.10.1 request@2.34.0 socket.io@1.0.6
 
 
 # Muh key:
-ADD id_rsa.pub /tmp/id_rsa.pub
-RUN cat /tmp/id_rsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.pub
+ADD ssh_key.pub /tmp/ssh_key.pub
+RUN cat /tmp/ssh_key.pub >> /root/.ssh/authorized_keys && rm -f /tmp/ssh_key.pub
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
