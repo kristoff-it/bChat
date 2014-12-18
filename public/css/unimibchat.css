@@ -1,0 +1,497 @@
+/**
+ * Foglio di stile per Client web UNIMIB CHAT 
+ * (c)2014 Alfio E. Fresta
+ * <alfio.fresta@alacriter.co.uk>
+ **/
+
+ html {
+ 	/*background: url('images/4651653307_6b7ddc7c79_obw.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;  */
+ }
+
+.main {
+	width: 80%;
+	float: right;
+	/*background: url('images/8098158658_ecddda123f_oh.jpg');
+	background-repeat: repeat-x;*/
+}
+
+#corpo {
+	height: 100%;
+	/*padding-top: 10px;*/
+	padding-bottom: 20px;
+}
+
+#comp-caricamento {
+	margin-top: 80px;
+	display: block;
+}
+#comp-caricamento div {
+	padding-bottom: 40px;
+}
+
+.componente-corpo {
+	display: none;
+	margin-top: 38px; /* header */
+}
+
+.tab {
+	display: none;
+}
+
+#accesso-img {
+	margin: -5px;
+	width: 28px;
+	height: 28px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+/* 
+ * Utilita' varie
+ */
+ 
+.allinea-centro {
+	text-align: center;
+}
+.allinea-destra {
+	text-align: right;
+}
+.allinea-sinistra {
+	text-align: left;
+}
+.nascosto {
+	display: none;
+}
+.visibile {
+	display: block ;
+}
+.grassetto { 
+	font-weight: bold;
+}
+
+
+/* 
+ * Stile navbar/sidebar
+ */
+ 
+.sidebar {
+	overflow: auto;
+	position: fixed;
+	width: 20%;
+	height: 100%;
+	background-image: url('images/4651653307_6b7ddc7c79_o2.jpg');
+	background-size: 100% 100% !important;
+    background-repeat: no-repeat;
+}
+
+.logobar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 20%;
+	z-index: 20;
+}
+.logobar svg{
+	width: 40px;
+	height: 40px;
+	margin: -5px 10px 0px 0px;
+	fill: #E68700;
+	-webkit-filter: drop-shadow(0 1px 0 rgba(90,90,90,.65));
+}
+.logobar a {
+	color: #E68700 !important;
+	font-size: 150%;
+	text-decoration: none;
+	vertical-align: top;
+	text-shadow: 0 1px 0 rgba(90,90,90,.65);
+}
+#logosvg, #logonome {
+	float: left;
+	background-color: rgba(240,240,240,.9);
+}
+#logosvg {
+	padding: 10px;
+	border-bottom-right-radius: 50%;
+}
+#logonome {
+	height: 38px;
+	width: calc(100% - 70px);
+	color: #E68700 !important;
+	text-decoration: none;
+}
+
+.navbar {
+	margin-left: 20%;
+	width: 80%;
+	min-height: 36px !important;
+	background-color: rgba(240,240,240,.8) !important;
+	/*border-color:#e7e7e7*/
+}
+
+#accesso-effettuato, #accesso-noneffettuato {
+	/*background-color: rgba(240,240,240,.8) !important;*/
+}
+
+.navbar-nav>li>a {
+	padding: 8px !important;
+}
+
+.nav-sidebar li {
+	border-right: 2px solid #CCC;
+	border-bottom: 1px solid #EFEFEF;
+	border-top: 1px solid #EFEFEF;
+	background-color: #EFEFEF;
+}
+.nav-sidebar li.active {
+	border-right: none;
+	border-bottom: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	background-color: white;
+}
+
+
+#padd {
+	margin-top: 40px;
+	padding: 10px;
+}
+
+#form-tag {
+	width: 75%;
+	margin-left: 25%;
+}
+#form-tag .fa-slack {
+	font-size: 135%;
+	vertical-align: middle;
+}
+.tag-laterale .tag-span, .tag-span {
+	cursor: pointer;
+	vertical-align: text-top;
+}
+.tag-span {
+	font-size: 73% !important;
+}
+.tag-laterale .tag-span {
+	font-size: 110% !important;
+	font-weight: 700;
+	text-shadow: 0 1px 0 rgba(50, 50, 50, 0.6);
+}
+.tag-laterale .badge {
+	/*background-color: #373228;*/
+	background-color: #787878;
+	margin-top: 2px;
+}
+
+.tag-laterale-si {
+	background-color: rgba(180,105,0,.5);
+}
+
+#trending-tags {
+	margin: 10px 0px;
+	margin-bottom: 150px;
+}
+#trending-tags li a {
+	padding: 4px 3px 4px 0px;
+	cursor: pointer;
+}
+#trending-tags li a:hover {
+	background-color: rgba(180, 75, 0, .8);
+}
+
+.btn-group2 {
+	width: 20%;
+	margin-left: -10px;
+	padding: 10px 21px !important;
+	background-color: rgba(240,240,240,.75) !important;
+}
+.btn-group2 button, .btn-group2 label {
+	/*background-color: #E68700;*/
+	/*background-color: rgba(230,135,0,.3);*/
+	/*border-color: #B44B00;*/
+}
+
+.nav-sidebar li.active a:hover {
+	background-color: white;
+}
+
+#scrollabile {
+	overflow: auto;
+}
+
+.tag-cliccabile {
+	cursor: pointer;
+}
+
+/*
+ * Modulo di invio 
+ */
+#modulo-msg .input-group.row {
+	width: 100%;
+}
+
+#username {
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+	background: none;
+	/*width: auto;*/
+	box-shadow: none;
+	padding: 0px 0px;
+	display: inline-block;
+}
+
+#subscribed-tags .tag-span {
+	font-size: 18px;
+	line-height: 200%;
+}
+
+#cambia-nick-msgs p {
+	padding: 3px 5px;
+}
+
+.nickname-scelto {
+	font-weight: bold;
+}
+
+#modulo-msg-tags {
+	border: none;
+	display: inline-block;
+	margin: 0px 0px;
+	vertical-align: middle;
+}
+
+#modulo-msg-txt {
+	border: none;
+	box-shadow: none;
+}
+.form-messaggio-anonimo {
+	background-color: rgba(230,135,0,.15);
+}
+.form-messaggio-autentico {
+	background-color: rgba(185, 200, 255,.25);
+}
+
+
+.riga-composizione {
+	padding-bottom: 10px;
+	width: 100%;
+}
+
+
+
+
+footer {
+	margin-top: 8px;
+	padding: 15px 25px;
+	/*border-radius: 4px;*/
+	background-color: rgba(255, 255, 255, .4);
+	text-shadow: 1px 1px 0px black;
+	box-shadow: 1px 1px 2px black;
+	color: white;
+	font-weight: bold;
+}
+
+/* 
+ * STILE MESSAGGI
+ */
+.autore, .tags {
+	font-size: 95% !important;
+	padding-top: 1px !important;
+	margin-left: 2px;
+	float: left;
+}
+
+.autore{
+	margin-right: 3px;
+	vertical-align: top;
+}
+.autore img {
+	margin-right: 5px;
+	vertical-align: sub;
+}
+.id-avatar {
+	width: 20px;
+	height: 20px;
+}
+
+.tags i {
+	font-size: 90%;
+}
+.messaggio .tags span {
+	vertical-align: text-bottom;
+}
+
+
+td.messaggio {
+	width: 85%;
+	padding-left: 10px !important;
+}
+div.messaggio {
+	clear: both;
+	padding-left: 5px;
+	margin-left: 30px;
+	border-left: 4px solid blue;
+	text-shadow: 0 1px 0 rgba(250,250,250,.6);
+}
+td.data-reply { 
+	width: 10%;
+	text-align: right;
+	font-size: 85%;
+	padding-right: 20px !important;
+}
+
+.messaggio .fa {
+	font-size: 140%;
+}
+.messaggio-mio {
+	/*background-color: #FCDFAB;*/
+	/*background-image: -webkit-linear-gradient(bottom, #f2f2f2, #fff);*/
+	background: #ffe4cc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffe4cc 0%, #ffecdb 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe4cc), color-stop(100%,#ffecdb)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffe4cc 0%,#ffecdb 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffe4cc 0%,#ffecdb 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffe4cc 0%,#ffecdb 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffe4cc 0%,#ffecdb 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe4cc', endColorstr='#ffecdb',GradientType=0 ); /* IE6-9 */
+
+}
+tr .messaggio-mio:hover {
+	background-color: #F0B95A;
+}
+.messaggio-importante {
+	background-color: #FAFAC8;
+}
+.messaggio-anonimo {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#fffaf5)); /* Chrome,Safari4+ */
+}
+
+/* Stile nel citare una persona in un messaggio */
+.msg-tag {
+	font-weight: bold;
+	color: #008;
+	cursor: pointer;
+}
+
+/* ... in piu', se quella persona sono io */
+.msg-tag-io {
+	color: #C00;
+	cursor: normal;
+}
+
+.cliccami {
+	cursor: pointer;
+}
+
+#btn-cambia-nick {
+	border-radius: 15px;
+}
+
+/**
+ * Sovrascrivo un po' di roba di BOOTSTRAP
+ */
+
+.btn-primary { 
+	color: #fff;
+	/*background-color: #E68700;*/
+	background: #e68700; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e68700 0%, #e2a200 9%, #e68700 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e68700), color-stop(9%,#e2a200), color-stop(100%,#e68700)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e68700 0%,#e2a200 9%,#e68700 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e68700 0%,#e2a200 9%,#e68700 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e68700 0%,#e2a200 9%,#e68700 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e68700 0%,#e2a200 9%,#e68700 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68700', endColorstr='#e68700',GradientType=0 ); /* IE6-9 */
+	border-color: #B44B00;
+	text-shadow: 0 1px 0 rgba(90,90,90,.8);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+	color: #fff;
+	/*background-color: #B44B00;*/
+	-webkit-box-shadow:inset 0px 0px 0px 2px #B44B00;
+    -moz-box-shadow:inset 0px 0px 0px 2px #B44B00;
+    box-shadow:inset 0px 0px 0px 2px #B44B00;
+}
+.panel-primary {
+	border-color: #B44B00;
+}
+.panel-primary>.panel-heading {
+	color: #fff;
+	background-color: #E68700;
+	border-color: #B44B00;
+}
+.alert-info{
+	background-color: #F7E3D9;
+	border-color: #B44B00;
+	color: #B44B00;
+}
+.messaggio .label-primary, li.ui-widget-content {
+	/*background-color: #E68700;*/
+	background: #e68700 !important; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e68700 0%, #e2a200 9%, #e68700 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e68700), color-stop(9%,#e2a200), color-stop(100%,#e68700)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e68700 0%,#e2a200 9%,#e68700 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e68700 0%,#e2a200 9%,#e68700 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e68700 0%,#e2a200 9%,#e68700 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom,  #e68700 0%,#e2a200 9%,#e68700 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68700', endColorstr='#e68700',GradientType=0 ) !important; /* IE6-9 */
+	color: white !important;
+	text-shadow: 0 1px 0 rgba(90,90,90,.8);
+}
+.messaggio .label-primary:hover {
+	-webkit-box-shadow:inset 0px 0px 0px 1px #B44B00;
+    -moz-box-shadow:inset 0px 0px 0px 1px #B44B00;
+    box-shadow:inset 0px 0px 0px 1px #B44B00;
+}
+.messaggio .label-default {
+	background-color: #9B8C7D;
+	text-shadow: 0 1px 0 rgba(90,90,90,.8);
+}
+.messaggio .label-default:hover {
+	-webkit-box-shadow:inset 0px 0px 0px 1px #735032;
+    -moz-box-shadow:inset 0px 0px 0px 1px #735032;
+    box-shadow:inset 0px 0px 0px 1px #735032;
+}
+
+li.ui-widget-content .fa-times {
+	color: white;
+	font-size: 75%;
+	vertical-align: sub;
+	padding-right: 2px; 
+}
+
+/** 
+ * Stile fluido 
+ * 
+ */
+body {
+	padding-bottom: 50px;
+	/*background: #ccc;*/
+	background: none;
+}
+
+.attacca-fondo {
+	position: fixed;
+	bottom: 0px;
+	padding: 0px 30px 0px 40px;
+	padding-top: 10px;
+	background-color: white;
+	text-align: left;
+}
+
+#comp-chat {
+	min-height: 84vh;
+	background-color: #FFFAF5;
+}
+#comp-chat .attacca-fondo {
+	border-top: 1px solid gray;
+}
+.spostasu {
+	min-height: 50px;
+	/*background-color: #373228;*/
+}
+
+

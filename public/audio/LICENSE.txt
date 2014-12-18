@@ -1,0 +1,4 @@
+The audio files in this directory are licensed under the Apache License, Version 2.0, available at:
+ http://freepats.zenvoid.org/system-sounds/android/LICENSE-2.0.txt
+
+Source: http://freepats.zenvoid.org/system-sounds/android/
