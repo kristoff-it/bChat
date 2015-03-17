@@ -8,7 +8,7 @@
 #FROM phusion/passenger-ruby20:<VERSION>
 #FROM phusion/passenger-ruby21:<VERSION>
 # FROM phusion/passenger-nodejs:<VERSION>
-FROM phusion/passenger-customizable:0.9.15
+FROM phusion/passenger-customizable:0.9.14
 
 # Set correct environment variables.
 ENV HOME /root
@@ -22,7 +22,7 @@ CMD ["/sbin/my_init"]
 # for features. Uncomment the features you want:
 #
 #   Build system and git.
-RUN /pd_build/utilities.sh
+RUN /build/utilities.sh
 #   Ruby support.
 #RUN /build/ruby1.9.sh
 #RUN /build/ruby2.0.sh
@@ -30,10 +30,10 @@ RUN /pd_build/utilities.sh
 #   Python support.
 #RUN /build/python.sh
 #   Node.js and Meteor support.
-RUN /pd_build/nodejs.sh
+RUN /build/nodejs.sh
 
 # Setup REDIS:
-RUN /pd_build/redis.sh
+RUN /build/redis.sh
 RUN rm -f /etc/service/redis/down
 
 
@@ -43,6 +43,7 @@ RUN rm -f /etc/service/redis/down
 # Get bChat:
 USER app
 WORKDIR /home/app
+RUN echo 1
 RUN git clone https://1c8ed18a15cebbf96e47e059d98fdbfe336b0fb9@github.com/kappaloris/bChat.git
 
 # Setup nginx:
