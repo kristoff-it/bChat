@@ -1,411 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" class="no-js">
+  <head class='no-skrollr'>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>UNIMIB Chat</title>
-
-    <meta name="google-signin-clientid"     content="111899957451-6mr9mgh4vvi3mbmmk1q9teo48vsr2nre.apps.googleusercontent.com" />
-    <meta name="google-signin-cookiepolicy" content="single_host_origin" />
-    <meta name="google-signin-callback"     content="google_login_callback" />
-    <meta name="google-signin-scope"        content="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email" />
-
-    <link href="/css/bootstrap.min.css"     rel="stylesheet">
-    <link href="/css/font-awesome.min.css"  rel="stylesheet">
-    <link href="/css/unimibchat.css"        rel="stylesheet">
-    <link href="/css/jquery-ui.min.css"     rel="stylesheet">
-    <link href="/css/jquery.tagit.css"      rel="stylesheet">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>homeabout3</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="author" href="https://twitter.com/7iacura"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     
+    <style type="text/css">
+      
+      h1{font-size: 3vw;}p{font-size: 2vmin;}button{font-size: 3vmin;}
+      /*h1{font-size: 250%;}p{font-size: 125%;}button{font-size: 150%;}*/
+
+      header{
+        float: left;top: 0;left: 0;position: fixed;
+        width: 100%;z-index: 1000; 
+        background: rgb(200,200,200);border-bottom: 1px solid #aaaaaa;
+        -webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,.3);
+        -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,.3);
+        box-shadow: 0px 3px 10px 0px rgba(0,0,0,.3);}
+      nav{margin: 0 auto;}
+      header ul{list-style-type: none;float: right;}
+      header li{display: inline;float: left;margin-right: 30px;vertical-align: center;}
+      header a{
+        color: #E68700;text-decoration: none;text-transform: uppercase;text-shadow: 0 1px .6px #999;}
+      header a.active, header a:hover{color: #333;text-shadow: 0 1px .6px #999;}
+
+      button{
+        display: inline-block;overflow: visible;margin: 5px;padding: 1% 3%;
+        cursor: pointer;border: none;
+        background-color: #E68700;color: #ffffff;
+        text-decoration: none;text-shadow: 0 1px .6px #333;
+      }
+      button.active, button:hover{
+        -webkit-box-shadow:inset 0px 0px 0px 2px #B44B00;
+        -moz-box-shadow:inset 0px 0px 0px 2px #B44B00;
+        box-shadow:inset 0px 0px 0px 2px #B44B00;
+      }
+
+      .slide{
+        position: relative;height: 100vh;
+        -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+      }
+      .content{
+        display: block;overflow: hidden;width: 85%;
+        position: absolute;top: 50%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);}
+
+      #one, #two, #three{
+        /*position: fixed;*/width: 110vw;height: 110vh;padding-top: 60px;
+        background: 50% 50% / cover;}
+      #one .text, #two .boxl, #two .boxr, #three .boxu, #three .boxd{
+        display: inline-block;overflow: hidden;float: left;padding: 2% 3%;
+        font-size: 100%;text-align: center;
+        background: rgba(255,255,255,.9);box-shadow: 0 0 10px rgba(0,0,0,.3);
+      }
+
+      #one{background-image: url("css/images/8054418418_c1134f31d5_b3hd.jpg");}
+      #one svg{float: left;display: inline-block;margin-right: 30px;fill: #E68700;}
+      #one .text{padding: 2% 5%;}
+
+      #two{background-image: url("css/images/8105168446_5554c78740_o.jpg");/*background: #999; */}
+      #two .boxl, #two .boxr{width: 48%;}
+      #two .boxr{margin-left: 2%;}
+      #two .tab{padding-bottom: .1px;background: rgba(255,255,255,.5);box-shadow: 0 0 10px rgba(0,0,0,.3);}
+
+      #three{background-image: url("css/images/4651750813_f592ba4137_o.jpg");}
+      #three .boxu, #three .boxd{width: 98%;}
+      #three .boxd{margin-top: 2%;}
+      #three .tab{
+        width: 32%;float: left;margin-left: 1%;padding: 10px;
+        background: rgba(255,255,255,.5);box-shadow: 0 0 10px rgba(0,0,0,.3);}
+
+      .separator, footer {
+        position: relative;background: #333;
+        -webkit-box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,.2);
+        -moz-box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,.2);
+        box-shadow: inset 0px 10px 8px 0px rgba(0,0,0,.2);
+      }
+      .separator{height: 10vh;}
+      footer{height: 30vh;}
+
+    </style>
 
   </head>
 
   <body>
+    <main>
+    <div id='skrollr-body'>
 
-    <div id="corpo" class="container-fluid">
-      <div class="row">
+      <header data-400='height:80px;' data-800='height:40px;'>
+        <nav>
+          <ul data-400='margin-top:20px;font-size:170%;' data-800='margin-top:6px;font-size:125%;'>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">Awesome Freebies</a></li>
+          </ul>
+        </nav>
+      </header>
 
-        <div class="col-sm-3 col-md-2 " style="z-index: 20;">
-          <div class="sidebar" id="scrollabile">
-          
-            <!-- <div class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
-                <div class="navbar-header "> -->
-                  <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <i class="fa fa-bars"></i>
-                  </button> -->
-                  <!-- <a class="navbar-brand" href="/"> -->
-                
-                <!-- </div>
-              </div>
-            </div> -->
+      <div class="slide">
+        <div id="one" data-top="background-position:-35px -15px;" data-top-bottom="background-position:10px 15px;">
 
+          <div class="content">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2070 2070" width="30%" height="30%"><g>
+              <!-- <path id="border" opacity="0.85" fill="url(#contorno_2_)" stroke="#555ABF" d="M2077.153,1032.774 c0,208.424-67.335,410.205-173.153,572.726c-0.708,1.088-2.337,196.739,118.5,295.5c52,42.5,73.408,113.372,1,145.5 c-75.5,33.5-228.79,23.127-281.88,14.24c-57.38-9.604-149.7-17.225-241.326-93.843c-1.553-1.299-3.591-2.949-3.663-2.913 c-138.69,68.947-290.103,105.29-455.478,105.29c-572.167,0-1036-464.056-1036-1036.5s463.833-1036.5,1036-1036.5 S2077.153,460.33,2077.153,1032.774z"/> -->
+              <path id="down" d="M355.677,322.81L1035,91.66l670.812,252.152L1954.837,1035l-207.021,637.944L1035,1954.848 l-676.322-230.898L107,938L355.677,322.81z M365.428,414.65C371.84,422.513,768.374,908.579,782,911 c17.281,3.069,576-401,767.056-558.248L1035,91.66L365.428,414.65z M775.77,949.948C761.902,946.259,350,453,350,453l-58,179 c0,0,389.687,366.106,392,391.254c2.018,21.939-338,417.746-382.782,452.68L375,1610c45-32,343.901-463.34,370-468 c28.905-5.162,626,401,817,570l132-24l-5.443-58.059C1535,1492,824.798,1076.173,823,1060.25l0,0 C821.184,1029.367,1649,509,1708,463l-2.188-119.188l-138.801,47.587C1417,536,791.319,954.085,775.77,949.948z M285,1439 c31-24,363.952-391.703,363-415.746C647.119,1001.009,273,663,273,663L112,938L285,1439z M364,1675l671,279.848l492.443-215.837 C1410,1617,780.52,1177.071,754,1181C734.581,1183.877,552.197,1465.618,364,1675z M1724,1600l226.604-576.746L1727,505 c-81,76-852,522.281-852,553C875,1070,1367,1350,1724,1600z"/>
+              <path id="up" d="M339.665,338.095L1035,123.48l636.597,160.617l289.488,616.473l-178.499,787.461L1035,1957.895 l-689.342-223.367L85,939.566L339.665,338.095z M1464.606,896.066c25.499,0,202.49-419.979,220.489-496.475L1035,109.982L625,283 C1007.569,458.261,1419.128,896.066,1464.606,896.066z M1695.593,968.066c7.498,53.995,38.996,37.496,133.492,389.979 l118.494-425.976L1797.587,647.08C1782.581,818.071,1690.547,931.727,1695.593,968.066z M1680.611,1674.068 c-2.251-46.842-77.578-375.909-120.012-386.517c-44.726-11.182-338.982,287.987-989.953,493.475L1035,1950.394L1680.611,1674.068z M336.658,1617.534c229.488-46.498,932.953-461.978,937.455-493.478c5.41-37.855-794.961-641.969-898.455-704.965L119.17,966.565 L336.658,1617.534z"/>
+              <path id="tongue" d="M1859.666,1536.335c0,0-22,281.333,140,404.666c33.874,25.789,41.498,58.484-1.086,71.014 c-118.913,34.986-364.58,44.985-505.702-100.38c-19.917-20.516-53.878-48.635-61.213-68.633L1859.666,1536.335z"/>
+              <path id="circle" d="M2035,1035c0,552.285-447.716,1000-1000,1000S35,1587.285,35,1035S482.716,35,1035,35S2035,482.715,2035,1035 z M1035,215c-452.873,0-820,367.126-820,820c0,452.876,367.127,820,820,820s820-367.124,820-820 C1855,582.126,1487.873,215,1035,215z"/>
+            </g></svg>
 
-          <div id="padd">
-            <form action="#" id="form-tag">
-                <div class="input-group input-group-sm"
-                data-toggle="tooltip" data-placement="bottom" title="Crea un nuovo tag">
-                  <span class="input-group-addon"><i class="fa fa-slack"></i></span>
-                  <input id="form-tag-txt" class="form-control" pattern="[a-z0-9\-]{2,20}"
-                  required placeholder="nome-tag" autocomplete="off" />
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary">
-                      <i class="fa fa-sign-in"></i>
-                    </button>
-                  </span>
-                </div>
-            </form>
-
-            <ul id="trending-tags" class="nav nav-pills nav-stacked">
-              <li class="allinea-centro alert alert-info"><i class="fa fa-lock"></i><br />Accedi per ottenere la lista dei tag</li>
-            </ul>
-
-            <div class="btn-group2 attacca-fondo spostasu" data-toggle="buttons">
-              <label type="button" class="b-ordinamento btn btn-sm btn-default active" 
-                data-toggle="tooltip" data-placement="top" title="Ordina per popolazione">
-                <input type="radio" name="ordinamento" data-valore="popolazione" checked />
-                <i class="fa fa-sort-amount-desc"></i>
-              </label>
-              <label type="button" class="b-ordinamento btn btn-sm btn-default"
-                data-toggle="tooltip" data-placement="top" title="Ordina per nome">
-                <input type="radio" name="ordinamento" data-valore="alfabetico" />
-                <i class="fa fa-sort-alpha-asc"></i>
-              </label>
-              <button type="button" disabled="disabled" class="btn btn-sm btn-default disabled">
-                <i class="fa fa-group"></i>
-                <span id="utenti-online">N/A</span> online
-              </button>
-              <button type="button" class="about btn btn-sm btn-default">
-                <i class="fa fa-info-circle"></i> About
-              </button>
+            <div class="text">
+              <h1>Partecipa alla discussione</h1>
+              <p>Unisciti alla chat del campus universitario:<br><br>
+                  segui solo i canali ti interessano, <br>
+                  discuti con altri studenti unimib, <br>
+                  sentiti libero di dire quello che pensi.<br><br>
+                  Non serve registrazione:<br>
+                  loggati direttamente col tuo account @campus.<br><br>
+                  <small style="border-top: 1px gray solid">Scarica l'applicazione per Android o iOS, oppure</small>
+              </p>
+              <button>ACCEDI</button>
             </div>
-
           </div>
-          </div>
+             
         </div>
+      </div>
 
-        <div class="col-sm-9 col-md-10 main">
+      <div class="separator"></div>
 
-          <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                  <i class="fa fa-bars"></i>
-                </button>
-              </div>
-
-              <div class="logobar">
-                <a href="/">
-                  <div id="logosvg">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2070px"
-                        height="2070px" viewBox="0 0 2070 2070" enable-background="new 0 0 2070 2070" xml:space="preserve">
-                    <g id="icona">
-                      <linearGradient id="contorno_2_" gradientUnits="userSpaceOnUse" x1="1041.1528" y1="-3.7256" x2="1041.1527" y2="2069.5493">
-                        <stop  offset="0" style="stop-color:#FDFDFD"/>
-                        <stop  offset="1" style="stop-color:#C9CACA"/>
-                      </linearGradient>
-                      <!-- <path id="contorno_1_" opacity="0.85" fill="url(#contorno_2_)" stroke="#555ABF" d="M2077.153,1032.774
-                        c0,208.424-67.335,410.205-173.153,572.726c-0.708,1.088-2.337,196.739,118.5,295.5c52,42.5,73.408,113.372,1,145.5
-                        c-75.5,33.5-228.79,23.127-281.88,14.24c-57.38-9.604-149.7-17.225-241.326-93.843c-1.553-1.299-3.591-2.949-3.663-2.913
-                        c-138.69,68.947-290.103,105.29-455.478,105.29c-572.167,0-1036-464.056-1036-1036.5s463.833-1036.5,1036-1036.5
-                        S2077.153,460.33,2077.153,1032.774z"/> -->
-                      <path id="unimib-down" d="M355.677,322.81L1035,91.66l670.812,252.152L1954.837,1035l-207.021,637.944L1035,1954.848
-                        l-676.322-230.898L107,938L355.677,322.81z M365.428,414.65C371.84,422.513,768.374,908.579,782,911
-                        c17.281,3.069,576-401,767.056-558.248L1035,91.66L365.428,414.65z M775.77,949.948C761.902,946.259,350,453,350,453l-58,179
-                        c0,0,389.687,366.106,392,391.254c2.018,21.939-338,417.746-382.782,452.68L375,1610c45-32,343.901-463.34,370-468
-                        c28.905-5.162,626,401,817,570l132-24l-5.443-58.059C1535,1492,824.798,1076.173,823,1060.25l0,0
-                        C821.184,1029.367,1649,509,1708,463l-2.188-119.188l-138.801,47.587C1417,536,791.319,954.085,775.77,949.948z M285,1439
-                        c31-24,363.952-391.703,363-415.746C647.119,1001.009,273,663,273,663L112,938L285,1439z M364,1675l671,279.848l492.443-215.837
-                        C1410,1617,780.52,1177.071,754,1181C734.581,1183.877,552.197,1465.618,364,1675z M1724,1600l226.604-576.746L1727,505
-                        c-81,76-852,522.281-852,553C875,1070,1367,1350,1724,1600z"/>
-                      <path id="unimib-up" d="M339.665,338.095L1035,123.48l636.597,160.617l289.488,616.473l-178.499,787.461L1035,1957.895
-                        l-689.342-223.367L85,939.566L339.665,338.095z M1464.606,896.066c25.499,0,202.49-419.979,220.489-496.475L1035,109.982L625,283
-                        C1007.569,458.261,1419.128,896.066,1464.606,896.066z M1695.593,968.066c7.498,53.995,38.996,37.496,133.492,389.979
-                        l118.494-425.976L1797.587,647.08C1782.581,818.071,1690.547,931.727,1695.593,968.066z M1680.611,1674.068
-                        c-2.251-46.842-77.578-375.909-120.012-386.517c-44.726-11.182-338.982,287.987-989.953,493.475L1035,1950.394L1680.611,1674.068z
-                         M336.658,1617.534c229.488-46.498,932.953-461.978,937.455-493.478c5.41-37.855-794.961-641.969-898.455-704.965L119.17,966.565
-                        L336.658,1617.534z"/>
-                      <path id="lingua" d="M1859.666,1536.335c0,0-22,281.333,140,404.666c33.874,25.789,41.498,58.484-1.086,71.014
-                        c-118.913,34.986-364.58,44.985-505.702-100.38c-19.917-20.516-53.878-48.635-61.213-68.633L1859.666,1536.335z"/>
-                      <path id="cerchio" d="M2035,1035c0,552.285-447.716,1000-1000,1000S35,1587.285,35,1035S482.716,35,1035,35S2035,482.715,2035,1035
-                        z M1035,215c-452.873,0-820,367.126-820,820c0,452.876,367.127,820,820,820s820-367.124,820-820
-                        C1855,582.126,1487.873,215,1035,215z"/>
-                    </g>
-                    </svg>
-                  </div>
-                  <div id="logonome">bChat</div>
-                </a>
-              </div>
-
-              <div class="navbar-collapse collapse">
-
-                <!-- Accesso non effettuato -->
-                <ul id="accesso-noneffettuato" class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="#"><i class="fa fa-warning"></i> Accesso non effettuato</a></li>
-                </ul>
-
-                <!-- Accesso effettuato -->
-                <ul id="accesso-effettuato" class="nascosto nav navbar-nav navbar-right">
-                  <li class="">
-                    <a href="#">
-                      Ciao, <strong><span class="mia-email"><i class="fa fa-spin fa-spinner"></i></span></strong>
-                    </a>
-                  </li>
-                  <li class="dropdown">
-                    <a data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                      <span id="notifica-attuale">
-                        <i class="fa fa-spin fa-spinner"></i> Attendere...
-                      </span>
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                      <li>
-                        <a data-notifiche="tutti">
-                          <i class='fa fa-volume-up'></i> Tutti i messaggi
-                        </a>
-                      </li>
-                      <li>
-                        <a data-notifiche="importanti">
-                          <i class='fa fa-volume-up'></i> Solo importanti
-                        </a>
-                      </li>
-                      <li>
-                        <a data-notifiche="muto">
-                          <i class='fa fa-volume-off'></i> Muto
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#" onclick="logout();">Esci <i class="fa fa-sign-out"></i></a></li>
-                </ul>
-
-              </div>
-            </div>
-          </div>
-        
-          <!-- Inizio componente: Caricamento -->
-          <div id="comp-caricamento" class="componente-corpo">
-
-            <div class="col-md-6 col-md-offset-3 allinea-centro alert alert-block alert-info">
-              <h1>
-                Caricamento in corso...
-              </h1>
-              <div class="progress progress-striped active">
-                <div class="progress-bar"  role="progressbar" style="width: 100%;"></div>
-              </div>
-
-              <p>&Egrave; in corso la connessione al server di chat.</p>
-            </div>
-          </div>
-          <!-- Fine componente: Caricamento -->
-
-
-          <!-- Inizio componente: Accedi -->
-          <div id="comp-accedi" class="componente-corpo allinea-centro">
-
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h2 class="panel-title"><i class="fa fa-key"></i> Accedi alla chat</h2>
-              </div>
-              <div class="panel-body">
-                <p>Clicca qui sotto ed accedi usando il tuo indirizzo email @unimib.it.</p>
-
-                <div id="login-nonfatto" class="nascosto alert alert-danger">
-                  <h4>Non hai effettuato l'accesso</h4>
-                  <p>Devi accedere col tuo account email Google universitario per poter usare la chat.</p>
-                </div>
-                
-                <div id="login-errore" class="nascosto alert alert-danger">
-                  <h4><i class="fa fa-warning-sign"></i> Errore durante l'accesso</h4>
-                  <p id="login-errore-testo">Autorizzazione negata, spiacente.</p>
-                </div>
-                
-                <div id="accesso-pulsante">
-                  <button
-                      class="g-signin"
-                      data-theme="dark"
-                      data-approvalprompt="force"
-                      data-height="tall"
-                      data-width="wide"
-                  >
-                  </button>
-                </div>
-
-                <div class="row">
-                  <div id="login-incorso" class="nascosto allinea-centro col-md-6 col-md-offset-3">
-                    <strong>Accesso in corso, attendere...</strong><br />
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar"  role="progressbar" style="width: 100%;"></div>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-            </div>
-
-          </div>
-          <!-- Fine componente: Accedi -->
-
-          <!-- Inizio componente: Chat -->
-          <div id="comp-chat" class="componente-corpo allinea-centro">
+      <div class="slide">
+        <div id="two" data-bottom-top="background-position:10px 0px;" data-top-bottom="background-position:-35px -35px;">
+          <div class="content">
             
-            <div id="scrollabile">
-              <table id="storico" class="allinea-sinistra table table-condensed table-striped table-hover">
-                <tbody>
-                </tbody>
-              </table>
+            <div class="boxl">
+              <h1>LEGGI</h1>
+              <p>
+                <div class="tab"><h2>tags</h2><p>segui i tag che vuoi</p></div>
+              </p>
             </div>
 
-            <div class="attacca-fondo col-md-10" style="z-index: 25;">
-            <form action="#" id="modulo-msg" class="col-md-12">
-
-              <div class="row">
-
-                    Stai scrivendo come
-                    <span id="username" 
-                      data-container="body" data-toggle="popover" data-placement="top" data-trigger="hover" data-html="true"
-                      data-content="<i class='fa fa-info-circle'></i> Questo &egrave; il nome che gli altri utenti vedranno accanto ai tuoi messaggi. Per cambiarlo, clicca su <i class='fa fa-pencil'></i>.">Attendere...
-                    </span>
-
-                    <button class="btn btn-default btn-sm" type="button" id="btn-cambia-nick">
-                      <i class="fa fa-pencil"></i>
-                    </button>
-
-                    <span id="inRispostaA" class="nascosto">
-
-                      <span id="inRispostaA-pubblico" class="inRispostaA-tipo">in risposta a</span>
-                      <span id="inRispostaA-privato"  class="inRispostaA-tipo">un messaggio diretto a</span>
-
-                      <span id="inRispostaA-utente">
-                        nessuno
-                      </span>
-                      <a href="#" id="btn-in-risposta-a-nessuno" title="Anulla risposta">
-                        <i class="fa fa-times"></i>
-                      </a>
-                    </span>
-
-                    <span id="contenitore-modulo-msg-tags">
-                      su
-                      <ul id="modulo-msg-tags" 
-                        data-container="body" data-toggle="popover" data-placement="left" data-trigger="manual" data-html="true"
-                        data-content="<i class='fa fa-info-circle'></i> Scrivi qui fino a 3 tag con i quali condividere il messaggio."
-                        ></ul>
-                    </span>
-
-
-
-               
-              </div>
-              <div class="row riga-composizione">
-                  
-                    <div class="col-xs-11">
-                      <input id="modulo-msg-txt"  autocomplete="off" class="form-control"
-                           required maxlength="255" placeholder="Scrivi il tuo messaggio..." />
-                     </div>
-
-                    <button type="submit" class="btn btn-primary" style="text-align: right; margin-left:7px;">
-                      Invia&nbsp;<i class="fa fa-chevron-circle-right "></i>
-                    </button>
-
-              </div>
-
-            </form>
+            <div class="boxr">
+              <h1>SCRIVI</h1>
+              <p>
+                <div class="tab"><h2>tags</h2><p>scrivi nelle tag che vuoi (fino a un massimo di 3)</p></div>
+                <div class="tab"><h2>rispondi</h2><p>sentiti libero di rispondere anche direttamente a qualcuno</p></div>
+              </p>
+            </div>
 
           </div>
-
-          </div>
-          <!-- Fine componente: Chat -->
-
-
         </div>
-
       </div>
-    </div>
 
+      <div class="separator"></div>
 
-    <!-- Modale: Nickname -->
-    <div class="modal fade" id="cambia-nick" tabindex="-1" role="dialog" aria-labelledby="cambia-nick" aria-hidden="true">
-      <div class="modal-dialog">
-        <form id="cambia-nick-form" class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title"><i class="fa fa-pencil"></i> Cambia nickname</h4>
-          </div>
-          <div class="modal-body">
-            <p>Scegli il tuo nuovo nickname:</p>
-
-            <input type="text" class="form-control" placeholder="Scegli un nickname..." required
-             maxlength="26" pattern="[a-zA-Z0-9\-]{6,26}" id="cambia-nick-input" />
-
-            <div id="cambia-nick-msgs">
-              <p>&nbsp;</p>
-              <p id="cambia-nick-msg-ip" class="text-warning">
-                <i class="fa fa-spin fa-spinner"></i> Controllo se &laquo;<span class="nickname-scelto"></span>&raquo; &egrave; disponibile...
-              </p>
-              <p id="cambia-nick-msg-ok" class="text-success">
-                <i class="fa fa-check"></i> Il nickname &laquo;<span class="nickname-scelto"></span>&raquo; &egrave; disponibile!
-              </p>
-              <p id="cambia-nick-msg-no" class="text-danger">
-                <i class="fa fa-times"></i> Il nickname &laquo;<span class="nickname-scelto"></span>&raquo; non &egrave; disponibile.
-              </p>
-              <p id="cambia-nick-msg-nv" class="text-danger">
-                <i class="fa fa-times"></i> Il nickname non rispetta il formato richiesto.
-              </p>
+      <div class="slide">
+        <div id="three" data-bottom-top="background-position:-35px -15px;" data-end="background-position:10px 5px;">
+          <div class="content">
+            <h1 style="text-align: center;">ANONIMATO</h1>
+            <div class="boxu">
+                <div class="tab"><h2>nickname</h2><p>usa il nickname che preferisci</p></div>
+                <div class="tab"><h2>scrivi</h2><p>scrivi attraverso il tuo nickname per mascherare il tuo nome reale</p></div>
+                <div class="tab"><h2>leggi</h2><p>nessuna limitazione in lettura, puoi guardare quello che vuoi anche da anonimo</p></div>
             </div>
 
-            <p class="alert alert-info">
-              <i class="fa fa-info-circle"></i> I nickname possono contenere solamente lettere, numeri e -. 
-                La lunghezza consentita &egrave; tra i 6 ed i 26 caratteri.
-            </p>
-
-            <hr />
-
-            <a class="btn btn-default btn-block" id="usa-identita-originale">
-              <i class="fa fa-check-circle"></i>
-              Usa identit&agrave; originale 
-              (<span class="mia-email">...</span>)
-            </a>
+            <div class="boxd">
+                <div class="tab"><h2>why</h2><p>scegli l'anonimato perche..</p></div>
+                <div class="tab"><h2>how (pratico)</h2><p>in basso a destra scegli il tuo nickname e comincia ad usarlo da subito</p></div>
+                <div class="tab"><h2>how (tecnico)</h2><p>funziona blabla cosi bla bla</p></div>
+            </div>
 
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
-            <button type="submit" id="cambia-nick-conferma" class="btn btn-primary"><i class="fa fa-save"></i> Applica</button>
-          </div>
-        </form>
+        </div>
       </div>
+
+      <footer>
+        ciao a tutti, noi chi siamo, blabla @loris cazzo metto qua sotto?
+      </footer>
+      
     </div>
+    </main>
 
-    <!-- id: notifica-#-player, con # in [normale, importante, ...] -->
-    <audio id="notifica-normale-player" preload="auto" volume="0.9" src="/audio/nrmsg2a.ogg">
-      <small>Notifiche sonore non supportate da questo sistema.</small>
-    </audio>
-    <audio id="notifica-importante-player" preload="auto" volume="0.9" src="/audio/nrmsg2a.ogg">
-      <small>Notifiche sonore non supportate da questo sistema.</small>
-    </audio>
-
-
-
-    <!-- Javascript -->
-    <script src="/js/json2.min.js"          ></script>
-    <script src="/js/jquery.min.js"         ></script>
-    <script src="/js/jstorage.min.js"       ></script>
-    <script src="/socket.io/socket.io.js"   ></script>
-    <script src="/js/jquery-ui.min.js"      ></script>
-    <script src="/js/bootstrap.min.js"      ></script>
-    <script src="/js/tag-it.min.js"         ></script>
-    <script src="/js/client.js"             ></script>
-    <script src="/js/unimibchat.js"         ></script>
-    <script type="text/javascript">
-      (function() {
-        var po = document.createElement('script');
-        po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://plus.google.com/js/client:plusone.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(po, s);
-      })();
-    </script>
-
-
+  <script src="js/skrollr.js"></script>
+  <script type="text/javascript">
+    var s = skrollr.init();
+  </script>
   </body>
 </html>
