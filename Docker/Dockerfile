@@ -8,7 +8,7 @@
 #FROM phusion/passenger-ruby20:<VERSION>
 #FROM phusion/passenger-ruby21:<VERSION>
 # FROM phusion/passenger-nodejs:<VERSION>
-FROM phusion/passenger-customizable:0.9.14
+FROM phusion/passenger-customizable:0.9.15
 
 # Set correct environment variables.
 ENV HOME /root
