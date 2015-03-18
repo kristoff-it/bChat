@@ -16,8 +16,9 @@ const TOO_MANY    = 4;
 function CClient() {
 	this.io			= null;						
 	this.refresh 	= 12000; 					// Refresh time (tag list)
-	//this.endpoint	= 'http://188.226.177.107:8080';	// Endpoint
-	this.endpoint 	= 'http://localhost:8080';
+	this.endpoint 	= 'http://bchat.studentibicocca.com';
+	// this.endpoint	= 'http://188.226.177.107:8080';	// Endpoint
+	// this.endpoint 	= 'http://localhost:8080';
 	this.identity 	= {
 		max_length: 	0,
 		nickname: 		null,

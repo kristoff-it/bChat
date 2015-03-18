@@ -54,8 +54,9 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN cp Docker/nginx-bchat.conf /etc/nginx/sites-enabled/bchat.conf
 
 # Install nodejs deps:
-USER root
-RUN npm install -g googleapis@0.7.0 redis@0.10.1 request@2.34.0 socket.io@1.0.6
+# USER root
+# RUN npm install -g googleapis@0.7.0 redis@0.10.1 request@2.34.0 socket.io@1.0.6
+RUN npm install googleapis@0.7.0 redis@0.10.1 request@2.34.0 socket.io@1.0.6
 
 
 # Muh key:
