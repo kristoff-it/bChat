@@ -424,11 +424,11 @@ function prepare_message (message, socket, important){
     return prepared_message;
   }
 
-  if (message[3].indexOf('>:3') != -1){
-    prepared_message.reply = "Jesus Christ it's a lion get in the car!";
-    console.log("IL MESSAGGIO HA IL LEONE");
-    return prepared_message;
-  }
+  // if (message[3].indexOf('>:3') != -1){
+  //   prepared_message.reply = "Jesus Christ it's a lion get in the car!";
+  //   console.log("IL MESSAGGIO HA IL LEONE");
+  //   return prepared_message;
+  // }
 
   prepared_message.message = message;
   prepared_message.broadcast = true;
@@ -464,6 +464,35 @@ function emit_message_locally (message, except_id){
   }
 
   // TODO: controllare che il destinatario di un reply lo riceva sicuramente
+
+  if (message[4] && message[4].length > 0){
+    if (message[4].indexOf('@') != -1){
+      authentic = message[4];
+    }else{
+      authentic = local_custom_nicknames[message[4]];
+    }
+    console.log("MESSAGGGIIIIII");
+    console.log(message[4]);
+    console.log(authentic);
+    if (authentic){
+      sockets_obj = users_connected[authentic];
+      console.log('autentico presente');
+      if (sockets_obj){
+        socket_ids = Object.keys(sockets_obj);
+        console.log('socket trovati:');
+        console.log(socket_ids);
+        i = socket_ids.length;
+        while(i--){
+          if (!msgd[socket_ids[i]]){
+            socket = users_connected[authentic][socket_ids[i]];
+            if (socket && socket.chat_public_identity == message[4]){
+              socket.emit('M', message);
+            }
+          }
+        }
+      }
+    }
+  }
   // TODO: aggiungere altre logiche di identificazione di messaggi importanti
   // TODO: if message.important redis.set(blablabla); (se non arriva da redis, cioe' no except_id lol!)
 
@@ -573,18 +602,18 @@ io.sockets.on('connection', function (socket) {
     if (prepared_message.is_garbage) return;
 
     // TODO: meccaniche del bangbot.
-    if (message[3].indexOf('!') > -1){ // #!
-      redis.pfadd('bangbot', message[1], function(err, val){
-        if (val) {
-          reply('!BOT ha rifiutato questo messaggio.');
-          return;
-        }
-        reply(prepared_message.reply);
-        if (prepared_message.broadcast)
-          broadcast_message(prepared_message.message, prepared_message.echo_to_client ? undefined : socket.id);
-      });
-      return;
-    }
+    // if (message[3].indexOf('!') > -1){ // #!
+    //   redis.pfadd('bangbot', message[1], function(err, val){
+    //     if (val) {
+    //       reply('!BOT ha rifiutato questo messaggio.');
+    //       return;
+    //     }
+    //     reply(prepared_message.reply);
+    //     if (prepared_message.broadcast)
+    //       broadcast_message(prepared_message.message, prepared_message.echo_to_client ? undefined : socket.id);
+    //   });
+    //   return;
+    // }
     
     reply(prepared_message.reply);
 
