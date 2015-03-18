@@ -313,12 +313,12 @@ function storico_aggiungi_raw(data, tags, autore, messaggio, importante, rispost
 	if ( autore != $("#username").text() ) {
 		str +=   "<div class='btn-group btn-group-xs pull-right'>";
 		str +=     "<a class='btn btn-default'";
-		str +=     " onclick='ui_reply(\"" + rid + "\");'"
+		str +=     " onclick='ui_reply(\"" + rid + "\", \"" + autore + "\");'"
 		str +=     " title='Rispondi a " + autore + " pubblicamente'>";
 		str +=       "<i class='fa fa-reply'></i>";
 		str +=     "</a>";
 		str +=     "<a class='btn btn-default'";
-		str +=     " onclick='ui_privato(\"" + rid + "\");'"
+		str +=     " onclick='ui_privato(\"" + rid + "\", \"" + autore + "\");'"
 		str +=     " title='Rispondi a " + autore + " privatamente'>";
 		str +=       "<i class='fa fa-user'></i>";
 		str +=     "</a>";
@@ -475,25 +475,23 @@ function subscribedTo(tag) {
 	return (client.getTags().indexOf(tag) !== -1);
 }
 
-function ui_reply(rid) {
+function ui_reply(rid, autore) {
 	// Rimuovi tutti i tag e segui quelli del messaggio
 	$("#modulo-msg-tags").tagit("removeAll");
 	$("[data-rid=" + rid + "] [data-tag]").each( function(i, e) {
 		$("#modulo-msg-tags").tagit("createTag", "#" + $(e).data('tag'));
 	});
 	if ( rid !== undefined ) {
-		var autore = $("[data-rid=" + rid + "] .autore").text().trim();
 		ui_autore(autore, true);
 	} else {
 		ui_autore(false, true);
 	}
 }
 
-function ui_privato(rid) {
+function ui_privato(rid, autore) {
 	// Rimuovi tutti i tag
 	$("#modulo-msg-tags").tagit("removeAll");
 	if ( rid !== undefined ) {
-		var autore = $("[data-rid=" + rid + "] .autore").text().trim();
 		ui_autore(autore, false);
 	} else {
 		ui_autore(false, false);

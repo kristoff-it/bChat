@@ -420,7 +420,7 @@ function prepare_message (message, socket, important){
   // Gli utenti che usano nickname non possono mandare messaggi diretti a 
   // utenti non anonimi.
   if (socket.is_using_nickname && no_tags && message[4].indexOf('@') != -1){
-    message.reply = "Gli utenti anonimi possono mandare messaggi solo ad altri utenti anonimi.";
+    prepared_message.reply = "Gli utenti anonimi possono mandare messaggi solo ad altri utenti anonimi.";
     return prepared_message;
   }
 
